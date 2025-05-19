@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Самые высокие здания и сооружения</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+        <div class="nav-links">
+          <h3>Навигация по таблицам:</h3>
+          <a href="#buildings">Список зданий</a>
+          <a href="#types">Типы зданий</a>
+          <a href="#countries">Страны</a>
+          <a href="#years">Года</a>
+          <a href="#range-years">Диапазон годов</a>
+        </div>
+    
+        <h3 id="buildings">Список зданий</h3>
+        {% macro render_table(headers, rows) %}
+        <table>
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    {% for item in row %}
+                    <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endmacro %}
+        
+        {{ render_table(buildings_head, buildings_body) }}
+        <a href="#" class="back-to-top">Назад</a>
+    
+        <h3 id="types">Типы зданий</h3>
+        {{ render_table(buildings_head_type, buildings_body_type) }}
+        <a href="#" class="back-to-top">Назад</a>
+    
+        <h3 id="countries">Страны</h3>
+        {{ render_table(buildings_head_country, buildings_body_country) }}
+        <a href="#" class="back-to-top">Назад</a>
+    
+        <h3 id="years">Года</h3>
+        {{ render_table(buildings_head_year, buildings_body_year) }}
+        <a href="#" class="back-to-top">Назад</a>
+    
+        <h3 id="range-years">С {{startYear}} до {{endYear}}</h3>
+        {{ render_table(buildings_head_range_of_year, buildings_body_range_of_year) }}
+        <a href="#" class="back-to-top">Назад</a>
+      </body>
+    </html>

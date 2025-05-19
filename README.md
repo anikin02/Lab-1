@@ -33,3 +33,9 @@ def get_bulding_for_range_of_year(startYear, endYear):
     )
     return [query.statement.columns.keys(), query.all()]
 ```
+
+Заголовок для таблицы строится следующим образом:
+
+``` html
+<h3 id="range-years">С {{startYear}} до {{endYear}}</h3>
+```
